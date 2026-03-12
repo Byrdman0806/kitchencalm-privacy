@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KitchenCalm — AI-powered meal planning for the whole family. Plan smarter, eat better, waste less." />
+  <title>KitchenCalm — Your kitchen. Your plan. Simplified.</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #2DBD6E;
+      --green-dark: #22A05C;
+      --purple: #7C3AED;
+      --purple-end: #4F46E5;
+      --dark: #0A1628;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --surface: #f9fafb;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      color: var(--text);
+      background: var(--white);
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; color: white !important; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      background: linear-gradient(160deg, #0A1628 0%, #1B4332 60%, #0A2040 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(45,189,110,0.15) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 760px; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(79,70,229,0.3));
+      border: 1px solid rgba(124,58,237,0.4);
+      color: #c4b5fd;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span { color: var(--green); }
+
+    .hero-tagline {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 2.5rem;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--green);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.1);
+      color: white;
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid rgba(255,255,255,0.2);
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.18); transform: translateY(-1px); }
+
+    .coming-soon-tag {
+      display: inline-block;
+      background: rgba(45,189,110,0.15);
+      color: var(--green);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 4px;
+      vertical-align: middle;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 6rem 2rem;
+      background: var(--surface);
+    }
+
+    .section-label {
+      text-align: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .section-sub {
+      text-align: center;
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      margin: 0 auto 3.5rem;
+      line-height: 1.6;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+    }
+
+    .feature-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .icon-green { background: rgba(45,189,110,0.12); }
+    .icon-purple { background: linear-gradient(135deg, rgba(124,58,237,0.12), rgba(79,70,229,0.12)); }
+    .icon-blue { background: rgba(59,130,246,0.12); }
+    .icon-orange { background: rgba(249,115,22,0.12); }
+    .icon-teal { background: rgba(20,184,166,0.12); }
+    .icon-pink { background: rgba(236,72,153,0.12); }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--text);
+    }
+
+    .feature-card p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* AI SECTION */
+    .ai-section {
+      padding: 6rem 2rem;
+      background: linear-gradient(160deg, #0A1628 0%, #1B4332 60%, #0A2040 100%);
+      text-align: center;
+    }
+
+    .ai-section .section-label { color: #c4b5fd; }
+    .ai-section .section-title { color: white; }
+    .ai-section .section-sub { color: rgba(255,255,255,0.6); }
+
+    .ai-providers {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 3rem;
+    }
+
+    .ai-provider-chip {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      padding: 0.6rem 1.4rem;
+      border-radius: 100px;
+      font-size: 0.95rem;
+      font-weight: 500;
+    }
+
+    /* HOW IT WORKS */
+    .how-section {
+      padding: 6rem 2rem;
+      background: white;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    .step {
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.1rem;
+      margin: 0 auto 1rem;
+    }
+
+    .step h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .step p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding: 6rem 2rem;
+      background: var(--surface);
+      text-align: center;
+    }
+
+    .cta-card {
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      border-radius: 24px;
+      padding: 4rem 2rem;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-card h2 {
+      font-size: clamp(1.8rem, 4vw, 2.4rem);
+      font-weight: 800;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .cta-card p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.05rem;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .btn-white {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--green-dark);
+      padding: 0.9rem 2rem;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-white:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--green); }
+
+    .footer-copy {
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .hero { padding: 90px 1.5rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">
+      <div class="logo-icon">&#127859;</div>
+      KitchenCalm
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="mailto:support@kitchen-calm.com">Contact</a></li>
+      <li><a href="#download" class="nav-cta">Get the App</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">&#10024; AI-Powered Meal Planning</div>
+      <h1>Your kitchen.<br /><span>Your plan.</span> Simplified.</h1>
+      <p class="hero-tagline">
+        KitchenCalm uses AI to create personalized weekly meal plans,<br />
+        manage your pantry, and build your grocery list automatically.
+      </p>
+      <div class="hero-actions">
+        <a href="#download" class="btn-primary">
+          &#9654; Get the App <span class="coming-soon-tag">Soon</span>
+        </a>
+        <a href="#features" class="btn-secondary">
+          Learn More &darr;
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <p class="section-label">Features</p>
+    <h2 class="section-title">Everything your kitchen needs</h2>
+    <p class="section-sub">From pantry to plate, KitchenCalm handles the planning so you can focus on cooking.</p>
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <div class="feature-icon icon-purple">&#129302;</div>
+        <h3>AI Meal Planning</h3>
+        <p>Get a full week of personalized meal plans generated by AI in seconds. Tailored to your household's tastes and dietary needs.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-green">&#127803;</div>
+        <h3>Pantry Management</h3>
+        <p>Track what you have on hand with expiration dates. KitchenCalm suggests meals based on ingredients you already own.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-blue">&#128722;</div>
+        <h3>Smart Grocery Lists</h3>
+        <p>Your grocery list builds itself from your meal plan. Check items off as you shop — no more forgotten ingredients.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-orange">&#128106;</div>
+        <h3>Household Profiles</h3>
+        <p>Manage multiple family members each with their own dietary preferences, allergies, and nutrition goals.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-teal">&#9888;</div>
+        <h3>Allergen Checking</h3>
+        <p>Automatic allergen detection for every meal suggestion. Know at a glance what's safe for everyone in your household.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon icon-pink">&#128218;</div>
+        <h3>Full Recipes</h3>
+        <p>Every AI-generated meal comes with complete ingredients and step-by-step cooking instructions. No experience required.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- AI SECTION -->
+  <section class="ai-section">
+    <p class="section-label">Powered by AI</p>
+    <h2 class="section-title">Your choice of AI provider</h2>
+    <p class="section-sub">KitchenCalm works with the world's leading AI models so you always get the best meal suggestions.</p>
+    <div class="ai-providers">
+      <div class="ai-provider-chip">Google Gemini</div>
+      <div class="ai-provider-chip">OpenAI GPT</div>
+      <div class="ai-provider-chip">Anthropic Claude</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how-section" id="how">
+    <p class="section-label">How It Works</p>
+    <h2 class="section-title">Up and running in minutes</h2>
+    <p class="section-sub">Getting started with KitchenCalm is simple.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <h3>Set Up Your Household</h3>
+        <p>Add your family members, dietary preferences, and any allergies or restrictions.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <h3>Stock Your Pantry</h3>
+        <p>Add the ingredients you already have. KitchenCalm tracks expiration dates so nothing goes to waste.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <h3>Generate Your Meal Plan</h3>
+        <p>Tap once and AI builds a full week of meals tailored to your household in seconds.</p>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <h3>Shop &amp; Cook</h3>
+        <p>Your grocery list is ready automatically. Follow the step-by-step recipes right in the app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="download">
+    <div class="cta-card">
+      <h2>Ready to simplify your kitchen?</h2>
+      <p>KitchenCalm is coming soon to Google Play. Be the first to know when it launches.</p>
+      <a href="mailto:support@kitchen-calm.com" class="btn-white">
+        &#9993; Contact Us
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">KitchenCalm</div>
+    <ul class="footer-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="/privacy-policy">Privacy Policy</a></li>
+      <li><a href="mailto:support@kitchen-calm.com">support@kitchen-calm.com</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 KitchenCalm. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
