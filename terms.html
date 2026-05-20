@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="KitchenCalm Terms of Use. Read the terms that govern your use of the KitchenCalm app and subscription service." />
+  <title>Terms of Use &mdash; KitchenCalm</title>
+  <link rel="icon" type="image/png" href="/favicon.png" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --green: #2DBD6E;
+      --green-dark: #22A05C;
+      --purple: #7C3AED;
+      --purple-end: #4F46E5;
+      --dark: #0A1628;
+      --text: #1a1a2e;
+      --muted: #6b7280;
+      --surface: #f9fafb;
+      --white: #ffffff;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: white !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      transition: background 0.2s !important;
+    }
+
+    .nav-cta:hover { background: var(--green-dark) !important; color: white !important; }
+
+    /* PAGE HEADER */
+    .page-header {
+      background: linear-gradient(160deg, #0A1628 0%, #1B4332 60%, #0A2040 100%);
+      padding: 130px 2rem 3.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(45,189,110,0.15) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .page-header-content { position: relative; z-index: 1; max-width: 760px; margin: 0 auto; }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(79,70,229,0.3));
+      border: 1px solid rgba(124,58,237,0.4);
+      color: #c4b5fd;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 1rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .page-header h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: white;
+      line-height: 1.15;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-header p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+    }
+
+    /* CONTENT */
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
+
+    .content h2 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--text);
+      margin: 2.5rem 0 0.75rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .content h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    .content p {
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .content ul {
+      margin: 0.5rem 0 1.25rem 1.5rem;
+    }
+
+    .content ul li {
+      color: var(--text);
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+
+    .content a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .content a:hover { text-decoration: underline; }
+
+    .callout {
+      background: rgba(45,189,110,0.08);
+      border-left: 3px solid var(--green);
+      padding: 1rem 1.25rem;
+      border-radius: 6px;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+
+    .callout strong { color: var(--green-dark); }
+
+    .last-updated {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-style: italic;
+      margin-bottom: 2.5rem;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 1rem;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      list-style: none;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--green); }
+
+    .footer-copy { font-size: 0.85rem; }
+
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .page-header { padding: 110px 1.5rem 3rem; }
+      .content { padding: 3rem 1.25rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="/" class="nav-logo">
+      <div class="logo-icon">&#127859;</div>
+      KitchenCalm
+    </a>
+    <ul class="nav-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#how">How It Works</a></li>
+      <li><a href="/guide">Guide</a></li>
+      <li><a href="mailto:support@kitchen-calm.com">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <section class="page-header">
+    <div class="page-header-content">
+      <div class="hero-badge">&#128220; Legal</div>
+      <h1>Terms of Use</h1>
+      <p>The terms that govern your use of KitchenCalm.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <p class="last-updated">Last updated: May 2026</p>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>
+      By downloading, installing, or using the KitchenCalm mobile application (the "App"), you agree to be bound by these Terms of Use ("Terms"). If you do not agree to these Terms, please do not use the App.
+    </p>
+    <p>
+      These Terms form a legally binding agreement between you and KitchenCalm ("we," "us," or "our").
+    </p>
+
+    <h2>2. The Service</h2>
+    <p>
+      KitchenCalm provides AI-powered meal planning, recipe suggestions, pantry tracking, grocery list generation, and related features (the "Service"). The Service is provided "as is" and may change over time as we improve or update features.
+    </p>
+
+    <h2>3. Subscription Terms</h2>
+    <p>
+      KitchenCalm offers a premium subscription ("KitchenCalm Premium") that unlocks AI-generated meal plans, recipes, and related features.
+    </p>
+
+    <h3>Free Trial</h3>
+    <p>
+      New subscribers may be offered a 7-day free trial. If you do not cancel before the trial ends, your paid subscription will begin automatically and your payment method will be charged.
+    </p>
+
+    <h3>Billing &amp; Renewal</h3>
+    <ul>
+      <li>Subscription fees are billed in advance through your Apple ID account.</li>
+      <li>Subscriptions renew automatically at the end of each billing period unless auto-renew is disabled at least 24 hours before the renewal date.</li>
+      <li>The renewal price is the then-current published price, which may differ from your initial price if we change our pricing.</li>
+    </ul>
+
+    <h3>Cancellation</h3>
+    <p>
+      You may cancel your subscription at any time through your Apple ID account settings: open the Settings app &rarr; tap your Apple ID &rarr; Subscriptions &rarr; KitchenCalm &rarr; Cancel. Cancellation takes effect at the end of the current billing period; you continue to have Premium access until that date.
+    </p>
+
+    <h3>Refunds</h3>
+    <p>
+      All subscription purchases are handled by Apple and are subject to Apple's refund policies. We do not directly issue refunds. To request a refund, contact Apple Support at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>.
+    </p>
+
+    <h2>4. Coupon Codes &amp; Promotional Access</h2>
+    <p>
+      We may offer coupon codes that grant complimentary access to Premium features for a limited time. Coupon codes are non-transferable, may only be redeemed by the intended recipient, and may expire or be revoked at our discretion. Coupon-based Premium access is not refundable and does not establish a paid subscription.
+    </p>
+
+    <h2>5. Acceptable Use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the App for any unlawful purpose or in violation of any applicable laws.</li>
+      <li>Attempt to reverse engineer, decompile, or extract source code from the App.</li>
+      <li>Use the App in a way that could damage, disable, overburden, or impair our systems.</li>
+      <li>Resell or redistribute access to the Service or coupon codes.</li>
+      <li>Use automated means (bots, scrapers) to access the Service.</li>
+    </ul>
+
+    <h2>6. AI-Generated Content</h2>
+    <p>
+      KitchenCalm uses third-party AI providers to generate meal suggestions, recipes, and other content. AI-generated content is provided for informational and convenience purposes only. We do not guarantee the accuracy, completeness, or suitability of any AI-generated content.
+    </p>
+
+    <h2>7. Dietary &amp; Allergen Information</h2>
+    <div class="callout">
+      <strong>Important:</strong> KitchenCalm filters meal suggestions against the allergens and dietary restrictions you provide, but we cannot guarantee that every suggestion will be safe for every person. AI-generated content may contain errors or omissions.
+    </div>
+    <p>
+      You are responsible for verifying ingredient lists, checking nutritional information against your individual needs, and confirming that meals are safe to consume given any allergies, medical conditions, dietary restrictions, or religious requirements that apply to you or anyone you cook for.
+    </p>
+    <p>
+      <strong>KitchenCalm is not a medical or nutritional advisory service.</strong> Consult a qualified medical professional or registered dietitian for personalized dietary guidance, especially if you or anyone in your household has severe allergies, food intolerances, diabetes, pregnancy-related dietary needs, or other medical conditions affecting diet.
+    </p>
+
+    <h2>8. User Content</h2>
+    <p>
+      You retain ownership of any content you add to KitchenCalm (pantry items, saved recipes, household profiles, etc.). By using the App, you grant us a limited license to store and process this content solely to provide the Service to you.
+    </p>
+    <p>
+      You are responsible for the accuracy of the information you enter and for keeping a backup of any data important to you.
+    </p>
+
+    <h2>9. Privacy</h2>
+    <p>
+      Your use of KitchenCalm is also governed by our <a href="/privacy-policy">Privacy Policy</a>, which explains what data we collect and how we use it.
+    </p>
+
+    <h2>10. Intellectual Property</h2>
+    <p>
+      The KitchenCalm name, logo, App design, original content, and all related intellectual property are owned by us. These Terms do not grant you any right to use our trademarks, logos, or branding without our prior written permission.
+    </p>
+
+    <h2>11. Third-Party Services</h2>
+    <p>
+      KitchenCalm integrates with third-party services including Apple App Store (for in-app purchases), Firebase (for authentication and data sync), RevenueCat (for subscription management), and AI providers (for meal generation). Your use of these features is also subject to those providers' own terms and policies.
+    </p>
+
+    <h2>12. Termination</h2>
+    <p>
+      You may stop using the App and delete your account at any time. We reserve the right to suspend or terminate access to the Service for users who violate these Terms, abuse coupon codes, or engage in fraudulent activity.
+    </p>
+
+    <h2>13. Disclaimers</h2>
+    <p>
+      THE APP AND SERVICE ARE PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
+    </p>
+    <p>
+      We do not warrant that the App will be uninterrupted, error-free, or free of viruses or harmful components. AI-generated content may contain errors and is not a substitute for professional advice.
+    </p>
+
+    <h2>14. Limitation of Liability</h2>
+    <p>
+      TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL KITCHENCALM, ITS OWNERS, EMPLOYEES, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING WITHOUT LIMITATION DAMAGES RELATED TO HEALTH, ALLERGIC REACTIONS, FOOD WASTE, FINANCIAL LOSS, OR ANY OTHER LOSS ARISING OUT OF OR RELATED TO YOUR USE OF THE APP.
+    </p>
+    <p>
+      OUR TOTAL LIABILITY TO YOU FOR ALL CLAIMS ARISING OUT OF OR RELATED TO THESE TERMS OR THE APP SHALL NOT EXCEED THE AMOUNT YOU PAID US IN THE 12 MONTHS BEFORE THE EVENT GIVING RISE TO THE CLAIM, OR $50, WHICHEVER IS GREATER.
+    </p>
+
+    <h2>15. Changes to These Terms</h2>
+    <p>
+      We may update these Terms from time to time. The "Last updated" date at the top of this page reflects the most recent change. We will notify you of material changes through the App or by email if you've provided one. Your continued use of the App after changes take effect constitutes acceptance of the updated Terms.
+    </p>
+
+    <h2>16. Governing Law</h2>
+    <p>
+      These Terms are governed by the laws of the State of Texas, United States, without regard to its conflict-of-laws principles. Any disputes will be resolved in the state or federal courts located in Texas.
+    </p>
+
+    <h2>17. Contact</h2>
+    <p>
+      Questions about these Terms? Email us at <a href="mailto:support@kitchen-calm.com">support@kitchen-calm.com</a>.
+    </p>
+
+    <div class="callout" style="margin-top: 3rem;">
+      <strong>Apple's Standard EULA:</strong> If you downloaded KitchenCalm from the App Store and we have not provided a separate End User License Agreement, the Apple <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener">Standard EULA</a> also applies to your use of the App.
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">KitchenCalm</div>
+    <ul class="footer-links">
+      <li><a href="/#features">Features</a></li>
+      <li><a href="/#how">How It Works</a></li>
+      <li><a href="/guide">Guide</a></li>
+      <li><a href="/terms">Terms</a></li>
+      <li><a href="/privacy-policy">Privacy Policy</a></li>
+      <li><a href="mailto:support@kitchen-calm.com">support@kitchen-calm.com</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2026 KitchenCalm. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
