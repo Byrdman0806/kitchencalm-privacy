@@ -1,69 +1,131 @@
-Privacy Policy
-This privacy policy applies to the KitchenCalm app (hereby referred to as "Application") for mobile devices that was created by Mitch Byrd (hereby referred to as "Service Provider") as a Freemium service. This service is intended for use "AS IS".
+# Privacy Policy
 
+**Last updated: May 30, 2026**
 
-Information Collection and Use
-The Application collects information when you download and use it. This information may include information such as
+This privacy policy applies to the KitchenCalm mobile application ("Application" or "the app") for iOS and Android, created by Mitch Byrd ("Service Provider", "we", "us"). The app is offered as a freemium service with optional in-app subscriptions.
 
-Your device's Internet Protocol address (e.g. IP address)
-The pages of the Application that you visit, the time and date of your visit, the time spent on those pages
-The time spent on the Application
-The operating system you use on your mobile device
+## What information we collect
 
-The Application collects your device's location, which helps the Service Provider determine your approximate geographical location and make use of in below ways:
+We only collect information that is necessary for the app's features to function.
 
-Geolocation Services: The Service Provider utilizes location data to provide features such as personalized content, relevant recommendations, and location-based services.
-Analytics and Improvements: Aggregated and anonymized location data helps the Service Provider to analyze user behavior, identify trends, and improve the overall performance and functionality of the Application.
-Third-Party Services: Periodically, the Service Provider may transmit anonymized location data to external services. These services assist them in enhancing the Application and optimizing their offerings.
+### Account information (collected when you sign up)
 
-The Application uses Artificial Intelligence (AI) technologies to enhance user experience and provide certain features. The AI components may process user data to deliver personalized content, recommendations, or automated functionalities. All AI processing is performed in accordance with this privacy policy and applicable laws. If you have questions about the AI features or data processing, please contact the Service Provider.
+- **Name** — collected to personalize your experience
+- **Email address** — collected for account login, password recovery, and important notifications
+- **Authentication identifiers** — Firebase user IDs and (if you choose Sign in with Google or Sign in with Apple) the corresponding OAuth identifiers
 
+### Health and dietary information (collected when you fill in your profile)
 
-The Service Provider may use the information you provided to contact you from time to time to provide you with important information, required notices and marketing promotions.
+- Dietary preferences and restrictions
+- Food allergies
+- Health goals (e.g., weight loss, maintenance, muscle gain)
+- Height and weight (used to calculate daily calorie targets and BMI on-device)
+- Age range
 
+This information is used to personalize meal plans, recipes, and grocery lists. BMI and daily calorie calculations are performed locally on your device using values from the U.S. Centers for Disease Control and Prevention (CDC) and the National Institutes of Health (NIH).
 
-For a better experience, while using the Application, the Service Provider may require you to provide us with certain personally identifiable information. The information that the Service Provider request will be retained by them and used as described in this privacy policy.
+### Household information (collected when you create a household)
 
+- Household name
+- Names, ages, and dietary information of household members you add
 
-Third Party Access
-Only aggregated, anonymized data is periodically transmitted to external services to aid the Service Provider in improving the Application and their service. The Service Provider may share your information with third parties in the ways that are described in this privacy statement.
+### App-generated content
 
+- Pantry inventory (food items you add manually or via Receipt Scan)
+- Meal plans and saved recipes
+- Grocery lists
 
-The Service Provider may disclose User Provided and Automatically Collected Information:
+### What we do NOT collect
 
-as required by law, such as to comply with a subpoena, or similar legal process;
-when they believe in good faith that disclosure is necessary to protect their rights, protect your safety or the safety of others, investigate fraud, or respond to a government request;
-with their trusted services providers who work on their behalf, do not have an independent use of the information we disclose to them, and have agreed to adhere to the rules set forth in this privacy statement.
+We do **not** collect: your precise or approximate location, browsing history, contacts, calendar events, SMS or call logs, advertising identifiers, biometric information beyond device-level authentication (e.g., Face ID handled by the operating system), or payment information (handled by Apple App Store or Google Play).
 
-Opt-Out Rights
-You can stop all collection of information by the Application easily by uninstalling it. You may use the standard uninstall processes as may be available as part of your mobile device or via the mobile application marketplace or network.
+## How we use third-party services
 
+We use the following third-party services to provide app functionality. Each is listed with what data is shared and for what purpose.
 
-Data Retention Policy
-The Service Provider will retain User Provided data for as long as you use the Application and for a reasonable time thereafter. If you'd like them to delete User Provided Data that you have provided via the Application, please contact them at byrdman0806@gmail.com and they will respond in a reasonable time.
+### Google Gemini (Google LLC) — AI meal plan generation
 
+When you use AI features (meal plan generation, meal suggestions, recipe creation, receipt scanning), we send the following information to Google Gemini, a generative AI service operated by Google LLC, to produce personalized output:
 
-Children
-The Service Provider does not use the Application to knowingly solicit data from or market to children under the age of 13.
+- Dietary preferences and restrictions
+- Food allergies
+- Health goal and calorie target
+- Pantry items (food names and quantities)
+- Household size (number of adults and children)
+- For receipt scanning only: the photographed receipt image
 
+**We obtain your explicit consent before any data is sent to Google Gemini.** You can revoke this consent at any time in Settings → AI Data Sharing, after which AI features will be disabled until consent is re-granted. AI processing is performed under [Google's privacy policy](https://policies.google.com/privacy). Google Gemini does not receive your name, email, exact birthdate, location, or payment information.
 
-The Service Provider does not knowingly collect personally identifiable information from children. The Service Provider encourages all children to never submit any personally identifiable information through the Application and/or Services. The Service Provider encourage parents and legal guardians to monitor their children's Internet usage and to help enforce this Policy by instructing their children never to provide personally identifiable information through the Application and/or Services without their permission. If you have reason to believe that a child has provided personally identifiable information to the Service Provider through the Application and/or Services, please contact the Service Provider (byrdman0806@gmail.com) so that they will be able to take the necessary actions. You must also be at least 16 years of age to consent to the processing of your personally identifiable information in your country (in some countries we may allow your parent or guardian to do so on your behalf).
+### Firebase (Google LLC) — authentication and cloud storage
 
+We use Firebase Authentication, Firestore, and Firebase services to store your account and user data securely in the cloud, enabling sync across devices. Data is encrypted at rest and in transit. Firebase is operated by Google LLC under [Firebase's privacy and security terms](https://firebase.google.com/support/privacy).
 
-Security
-The Service Provider is concerned about safeguarding the confidentiality of your information. The Service Provider provides physical, electronic, and procedural safeguards to protect information the Service Provider processes and maintains.
+### RevenueCat (RevenueCat, Inc.) — subscription management
 
+We use RevenueCat to manage in-app subscriptions across Apple App Store and Google Play. RevenueCat receives your Firebase user ID and your subscription status — no other personal data. See [RevenueCat's privacy policy](https://www.revenuecat.com/privacy/).
 
-Changes
-This Privacy Policy may be updated from time to time for any reason. The Service Provider will notify you of any changes to the Privacy Policy by updating this page with the new Privacy Policy. You are advised to consult this Privacy Policy regularly for any changes, as continued use is deemed approval of all changes.
+### Walmart Affiliate API (Walmart Inc.) — grocery price lookup
 
+When you use the Walmart grocery list feature, we send your search queries (ingredient names) to Walmart's affiliate product search API to look up product matches and prices. No user identity is sent. See [Walmart's privacy policy](https://corporate.walmart.com/privacy-security).
 
-This privacy policy is effective as of 2026-03-09
+### Apple App Store / Google Play — billing
 
+If you purchase a subscription, payment processing is handled entirely by Apple App Store (iOS) or Google Play (Android) under their respective terms. We never receive your payment card information.
 
-Your Consent
-By using the Application, you are consenting to the processing of your information as set forth in this Privacy Policy now and as amended by us.
+## Data sharing
 
+We do not sell or rent your personal information. Data is shared with the third parties listed above only as needed for app functionality. We do not share data with advertisers, data brokers, or analytics companies.
 
-Contact Us
-If you have any questions regarding privacy while using the Application, or have questions about the practices, please contact the Service Provider via email at byrdman0806@gmail.com.
+## Your rights
+
+### Access and correction
+
+You can view and edit most of your data directly in the app under Profile, Pantry, Meal Plan, and Household sections.
+
+### Data deletion
+
+You can request deletion of your account and all associated data at any time:
+
+- Visit [kitchen-calm.com/delete-account.html](https://kitchen-calm.com/delete-account.html), or
+- Email [support@kitchen-calm.com](mailto:support@kitchen-calm.com) with the subject "Delete My Account"
+
+Requests are processed within 30 days. Active subscriptions must be cancelled separately through Apple App Store or Google Play.
+
+### Revoking AI consent
+
+You can disable AI data sharing at any time in Settings → AI Data Sharing within the app.
+
+### Withdrawing from the app
+
+You can stop all data collection by uninstalling the app from your device.
+
+## Data security
+
+We use industry-standard security measures including HTTPS encryption in transit for all network requests, encryption at rest in Firebase storage, and OAuth-based authentication. We do not store passwords on our servers — authentication is handled by Firebase Authentication.
+
+## Data retention
+
+We retain your account data for as long as your account is active. Upon deletion request, your data is removed from our systems within 30 days. Some records (e.g., transaction logs) may be retained in anonymized form for up to 7 years for legal, tax, or fraud-prevention purposes.
+
+## Children's privacy
+
+KitchenCalm is intended for users age 13 and older. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please contact [support@kitchen-calm.com](mailto:support@kitchen-calm.com) and we will delete it promptly.
+
+## International users
+
+Your data is stored on Google Cloud (Firebase) servers, which may be located in the United States or other countries. By using the app, you consent to the transfer of your data to these locations. We rely on Standard Contractual Clauses and Google's compliance frameworks for cross-border data transfers from the European Union and United Kingdom.
+
+## Changes to this policy
+
+We may update this Privacy Policy from time to time. The "Last updated" date at the top of this page reflects the most recent revision. Continued use of the app after changes constitutes acceptance of the updated policy.
+
+## Your consent
+
+By using KitchenCalm, you consent to the practices described in this Privacy Policy. AI data sharing requires an additional explicit opt-in inside the app and can be revoked at any time.
+
+## Contact us
+
+For any questions about this Privacy Policy or our data practices, contact:
+
+- **Email:** [support@kitchen-calm.com](mailto:support@kitchen-calm.com)
+- **Account deletion:** [kitchen-calm.com/delete-account.html](https://kitchen-calm.com/delete-account.html)
